@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from './model/product';
+import { News } from './model/news';
+import { Hero } from './model/hero';
 
 @Component({
   selector: 'ac-root',
@@ -10,18 +12,84 @@ import { Product } from './model/product';
 
 
 export class AppComponent {
-  product: Product = {
-    "id": 1,
-    "label": "myMac",
-    "description": "Inspired by the best of Apple. Transformed by the M1 chip. Stands out in any space. Fits perfectly into your life.",
-    "image": "https://res.cloudinary.com/my-notes-demo/image/upload/v1627760417/academy/imac.png",
-    "memory": 16000,
-    "storage": 2000000,
-    "display": 24,
-    "price": 1500,
-    "colors": [
-      "mediumpurple", "red", "yellow", "aquamarine", "deepskyblue"
-    ]
+
+  products: Product[] = [
+    {
+      "id": 1,
+      "label": "myMac",
+      "description": "Inspired by the best of Apple. Transformed by the M1 chip. Stands out in any space. Fits perfectly into your life.",
+      "image": "https://res.cloudinary.com/my-notes-demo/image/upload/v1627760417/academy/imac.png",
+      "memory": 16000,
+      "storage": 2000000,
+      "display": 24,
+      "price": 1500,
+      "colors": [
+        "mediumpurple", "red", "yellow", "aquamarine", "deepskyblue"
+      ]
+    },
+    {
+      "id": 3,
+      "label": "myPad Pro",
+      "description": "Now with breakthrough M1 performance, a breathtaking XDR display, and blazing‑fast 5G wireless.",
+      "image": "https://res.cloudinary.com/my-notes-demo/image/upload/v1627760421/academy/ipad.png",
+      "memory": 4000,
+      "storage": 64000,
+      "display": 6.1,
+      "price": 900,
+      "colors": [
+        "dimgray", "darkgray"
+      ]
+
+    },
+    {
+      "id": 4,
+      "label": "myPhone 13",
+      "description": "5G speed. A14 Bionic, the fastest chip in a smartphone.\nAn edge-to-edge OLED display. Ceramic Shield with four times better drop performance. And Night mode on every camera. iPhone 12 has it all — in two perfect sizes.",
+      "image": "https://res.cloudinary.com/my-notes-demo/image/upload/v1627760465/academy/iphone12.jpg",
+      "memory": 16000,
+      "storage": 256000,
+      "display": 12.9,
+      "price": 850,
+      "colors": [
+        "black", "red", "lightgreen", "midnightblue", "mediumpurple"
+      ]
+
+    }
+  ];
+
+  selectedColor: string | null = null;
+
+  chooseColor(color: string) {
+    if (this.selectedColor == color)
+      this.selectedColor = null;
+    else
+      this.selectedColor = color;
+  }
+
+  addToCartHandler(params: { product: Product; color: string | null }) {
+    console.log(params.product, params.color);
+  }
+
+
+  news: News[] = [
+    {
+      "id": 1,
+      "title": "myWatch Series 6",
+      "description": "Measure your blood oxygen level with a revolutionary sensor and app. Take an ECG anytime, anywhere. See your fitness metrics at a glance with the enhanced Always-On Retina display. ",
+      "url": "https://www.apple.com/it/apple-watch-series-6/"
+    },
+    {
+      "id": 2,
+      "title": "myTV 4K",
+      "description": "The new Apple TV 4K brings the best of TV together with your favorite Apple devices and services — in a powerful experience that will transform your living room.",
+      "url": "https://www.apple.com/apple-tv-4k/"
+    }
+  ];
+
+  hero: Hero = {
+    "image": "https://res.cloudinary.com/my-notes-demo/image/upload/v1627760415/academy/hero.jpg",
+    "title": "My Shop: amazing devices",
+    "description": "Buy the latest devices for the <strong>best price</strong>  "
   };
 
 }

@@ -1,58 +1,98 @@
 <!--container-->
-<div class="container mt-3 row">
-  <div class="col-4">
+<div class="container">
 
-    <!--card-->
-    <div class="card h-100 round-border shadow-lg">
-      <div class="position-relative">
-        <img class="card-img-top p-3 round-border " [src]="product.image" [alt]="product.label" role="button">
-        <div class="position-absolute top-50 start-50 w-75 translate-middle pe-none">
-          <div class="row  row-cols-3 g-2 rounded p-2 text-white" style="background: rgba(0,0,0,0.5)">
-            <div class="col text-center">
-              <i class="fas fa-memory"></i>
-              {{product.memory/1000}}Gb
-            </div>
+  <!--hero-->
+  <div class="card round-border overflow-hidden mt-3" style="height: 300px">
+    <img class="card-img round-border" style="object-fit: cover" [src]="hero?.image" alt="Hero">
+    <div class="card-img-overlay mt-5">
+      <h1 class="card-title">{{hero?.title}}</h1>
+      <h4 class="card-text" [innerHTML]="hero?.description"></h4>
+    </div>
+  </div>
 
-            <div class="col text-center">
-              <i class="fas fa-sim-card"></i>
-              {{product.storage/1000}}Gb
-            </div>
-            <div class="col text-center">
-              <i class="fas fa-mobile-alt"></i>
-              {{product.display}}''
+  <!-- Products-->
+  <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 mt-5">
+    <!-- NEW -->
+    <div class="col" *ngFor="let product of products">
+      <!--card-->
+      <div class="card h-100 round-border shadow-lg">
+        <div class="position-relative">
+          <img class="card-img-top p-3 round-border " [src]="product.image" [alt]="product.label" role="button">
+          <div class="position-absolute top-50 start-50 w-75 translate-middle pe-none">
+            <div class="row  row-cols-3 g-2 rounded p-2 text-white" style="background: rgba(0,0,0,0.5)">
+              <div class="col text-center">
+                <i class="fas fa-memory"></i>
+                {{product.memory/1000}}Gb
+              </div>
+
+              <div class="col text-center">
+                <i class="fas fa-sim-card"></i>
+                {{product.storage/1000}}Gb
+              </div>
+              <div class="col text-center">
+                <i class="fas fa-mobile-alt"></i>
+                {{product.display}}''
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="card-body text-center">
-        <h5 class="card-title">
-          {{product.label}}
-        </h5>
-        <p class="card-text text-secondary">{{product.description}}</p>
-      </div>
-
-      <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center">
-        <div class="mx-1 mb-3 round-border shadow-sm"
-          style="width: 30px; height: 30px; border: 1px solid #fff; background-color: lightblue" role="button"></div>
-        <div class="mx-1 mb-3 round-border shadow-sm"
-          style="width: 30px; height: 30px; border: 1px solid #fff; background-color: lightseagreen" role="button">
+        <div class="card-body text-center">
+          <h5 class="card-title">
+            {{product.label}}
+          </h5>
+          <p class="card-text text-secondary">{{product.description}}</p>
         </div>
 
-      </div>
-      <div class="card-footer d-flex justify-content-between align-items-center">
-        <div class="h5 text-secondary">{{product.price}} € + vat</div>
+        <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center">
+          <div *ngFor="let color of product.colors" class="mx-1 mb-3 round-border shadow-sm"
+            style="width: 30px; height: 30px; border: 1px solid #fff;" role="button" [style.backgroundColor]='color'
+            (click)="chooseColor(color)" [style.border-width.px]="selectedColor === color ? 5 : 1"
+            [style.border-color]="selectedColor === color ? 'orange' : '#ccc'">
+          </div>
+        </div>
 
-        <div>
-          <span>select color</span>
+        <div class="card-footer d-flex justify-content-between align-items-center">
+          <div class="h5 text-secondary">{{product.price | currency: '€'}} + vat</div>
 
-          <button class="btn icon-circle-sm px-1 ms-2 shadow-lg" style="color: #222">
-            <i class="fas fa-cart-plus text-white"></i>
-          </button>
+          <div>
+            <span>{{!selectedColor ? 'select a color': 'add to Cart'}} </span>
+
+            <button class="btn icon-circle-sm px-1 ms-2 shadow-lg" style="color: #222"
+              [style.background-color]="!selectedColor ? '#ccc' : selectedColor" [disabled]="!selectedColor"
+              (click)="addToCartHandler({product, color:selectedColor})">
+              <i class="fas fa-cart-plus text-white"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<div class="container">
+
+  <!-- in questa porzione di codice c'è la parte di template delle tue card realizzate in precedenza -->
+
+
+  <!--News-->
+  <div class="row 3 mt-5">
+    <!--news 1-->
+    <div class="col-sm-6" *ngFor="let n of news">
+      <div class="card round-border">
+        <div class="card-body">
+          <h5 class="card-title">{{n.title}}</h5>
+          <p class="card-text">{{n.description}}</p>
+          <a [href]="n.url" target="_blank" class="btn btn-dark round-border">
+            <i class="fas fa-external-link-alt"></i>
+            Visit
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> <!-- div di chiusura -->
+
 <button class="btn btn-primary">
   <i class="fab fa-shopify"></i>
 </button>
