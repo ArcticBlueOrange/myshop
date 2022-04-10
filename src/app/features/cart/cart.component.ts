@@ -17,10 +17,12 @@ export class CartComponent implements OnInit {
     console.log(formData);
   }
 
-  checkField(input: NgModel) {
-    return { 'is-invalid': (input.invalid || input.value === 'null') && input.dirty, 'is-valid': input.valid };
+  checkField(input: NgModel, checkDirty: boolean=true) {
+    const startValue = checkDirty ? input.dirty : true;
+    return { 'is-invalid': (input.invalid || input.value === 'null') && startValue, 'is-valid': input.valid };
   }
 
   emailRegex = /^[\w\d_\-.]*@[\w\d_]*\.\w{2,3}$/;
+  expirationPattern = /^(0[1-9]|1[0-2])\/([0-9]{4}|[0-9]{2})$/;
 
 }

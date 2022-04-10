@@ -35,7 +35,6 @@
           </div>
         </div>
 
-        <!-- OTHER FIELDS PLACEHOLDER-->
         <div class="col-12">
           <label for="email" class="form-label">Email <span class="text-muted">Optional</span></label>
           <input type="email" class="form-control" placeholder="you@example.com" ngModel name="email"
@@ -51,7 +50,7 @@
         <div class="col-md-5">
           <label for="country" class="form-label">Country</label>
           <select class="form-select" required [ngModel] name="country" #countryRef="ngModel"
-            [ngClass]="checkField(countryRef)">
+            [ngClass]="checkField(countryRef, false)">
             <option [value]=null>Choose ...</option>
             <option value="it">Italy</option>
             <option value="us">United States</option>
@@ -66,13 +65,92 @@
             Zip code required (4 or 5 chars)
           </div>
         </div>
-        <!-- OTHER FIELDS PLACEHOLDER-->
-
-
-
       </div>
 
       <hr class="my-4">
+
+      <!-- PAYMENT OPTIONS PLACEHOLDER-->
+      <h4 class="mb-3">Payment</h4>
+      <div clas="my-3">
+        <div class="form-check">
+          <input type="radio"
+            ngModel
+            name="paymentMethod"
+            value="creditCard"
+            required
+            class="form-check-input"
+            #paymentRef="ngModel"
+            [ngClass]="checkField(paymentRef, false)">
+          <label class="form-check-label"
+            for="credit">Credit Card</label>
+        </div>
+        <div class="form-check">
+          <input type="radio"
+            ngModel
+            name="paymentMethod"
+            value="bankTransfer"
+            required
+            class="form-check-input"
+            #paymentRef="ngModel"
+            [ngClass]="checkField(paymentRef, false)">
+          <label class="form-check-label"
+            for="debit">Bank Transfer </label>
+            <div class="invalid-feedback">
+              Please select a payment method
+            </div>
+        </div>
+
+        <div class="row gy-3" *ngIf="f.value.paymentMethod === 'creditCard'">
+          <div class="col-md-6">
+            <label for="cc-name"
+              class="form-label">
+              Name on card </label>
+            <input type="text"
+              class="form-control"
+              required
+              ngModel
+              name="cardName"
+              #cardNameRef="ngModel"
+              [ngClass]="checkField(cardNameRef, false)">
+            <small class="text-muted">Full name as displayed on card</small>
+            <div class="invalid-feedback">Name on card is required</div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="cc-number" class="form-label">Credit card number</label>
+            <input type="text" class="form-control"
+              required minlength="16" maxlength="16"
+              ngModel
+              name="cardNumber"
+              #cardNumberRef="ngModel" [ngClass]="checkField(cardNumberRef,false)">
+            <div class="invalid-feedback">Credit card number is required (16 numbers)</div>
+          </div>
+
+          <div class="col-md-3">
+            <label for="cc-expiration" class="form-label">Expiration</label>
+            <input type="text" class="form-control" placeholder="12/22"
+              required [pattern]="expirationPattern"
+              ngModel name="cardExpiration" #cardExpirationRef="ngModel"
+              [ngClass]="checkField(cardExpirationRef,false)">
+            <div class="invalid-feedback">
+              Expiration date required <!--{{cardExpirationRef.errors | json}}-->
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="cc-cvv" class="form-label">CVV</label>
+            <input type="text" class="form-control" required minlength="3" maxlength="3" ngModel name="cardCVV"
+                    #cardCVVRef="ngModel" [ngClass]="checkField(cardCVVRef,false)">
+            <div class="invalid-feedback">
+              Security code required
+            </div>
+          </div>
+        <!--expiration date and continuation...-->
+
+        </div>
+
+        <!-- Bank transfer snippet -->
+
+        </div>
 
       <!-- PAYMENT OPTIONS PLACEHOLDER-->
 
