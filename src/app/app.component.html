@@ -1,10 +1,12 @@
-
-<button
-  class="btn"
-  (click)="page = 'shop'">SHOP</button>
-<button
-  class="btn"
-  (click)="page = 'cart'">CART</button>
+<button class="btn" (click)="page = 'shop'">SHOP</button>
+<button class="btn" (click)="page = 'cart'">CART</button>
 
 <ac-shop *ngIf="page === 'shop'"> </ac-shop>
 <ac-cart *ngIf="page === 'cart'"> </ac-cart>
+
+<!--
+ <button class="btn btn-primary">
+  <i class="fab fa-shopify"></i>
+</button>
+
+-->

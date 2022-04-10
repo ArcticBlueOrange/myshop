@@ -8,8 +8,7 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'ac-shop',
   templateUrl: './shop.component.html',
-  styles: [
-  ]
+  styleUrls: ['../../app.component.css']
 })
 export class ShopComponent implements OnInit {
   ngOnInit(): void {
