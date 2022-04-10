@@ -93,6 +93,42 @@
 
 </div> <!-- div di chiusura -->
 
-<button class="btn btn-primary">
+
+<!-- Newsletter-->
+<div class="bg-dark text-white mt-5">
+  <div class="container py-5 text-center">
+    <i class="fab fa-shopify fa-4x"></i>
+
+    <h1 class="">Subscribe the newsletter</h1>
+    <div class="d-flex justify-content-center mt-2">
+      <form
+        #f='ngForm'
+        class="row g-3"
+        (ngSubmit)="send(f.value.email)"
+        >
+        <div class="col-auto">
+          <input
+            type="email" class="form-control form-control-lg"
+            placeholder="Your email address"
+            required
+            [pattern]="mailRegex"
+            ngModel
+            name="email"
+            #emailRef="ngModel"
+            [ngClass]="{'is-invalid': emailRef.invalid && f.dirty, 'is-valid': emailRef.valid}"
+            >
+          <div class="col-auto">
+            <button
+              type="submit" class="btn btn-lg btn-primary mb-3"
+              [disabled]="f.invalid"
+              >Subscribe</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- <button class="btn btn-primary">
   <i class="fab fa-shopify"></i>
-</button>
+</button> -->

@@ -3,6 +3,9 @@ import { Product } from './model/product';
 import { News } from './model/news';
 import { Hero } from './model/hero';
 
+import { NgForm } from '@angular/forms';
+
+
 @Component({
   selector: 'ac-root',
   templateUrl: './app.component.html',
@@ -91,5 +94,12 @@ export class AppComponent {
     "title": "My Shop: amazing devices",
     "description": "Buy the latest devices for the <strong>best price</strong>  "
   };
+
+  send(email: string): void {
+    console.log(email);
+    alert(email);
+  }
+
+  mailRegex = /^[\w\d_.]+@[\w\d_]+\.\w+$/;
 
 }
