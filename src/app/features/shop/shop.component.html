@@ -112,7 +112,8 @@
             placeholder="Your email address"
             required
             [pattern]="mailRegex"
-            ngModel
+            [ngModel]="subscribed"
+            [readonly]="subscribed"
             name="email"
             #emailRef="ngModel"
             [ngClass]="{'is-invalid': emailRef.invalid && f.dirty, 'is-valid': emailRef.valid}"
@@ -120,7 +121,7 @@
           <div class="col-auto">
             <button
               type="submit" class="btn btn-lg btn-primary mb-3"
-              [disabled]="f.invalid"
+              [disabled]="f.invalid || subscribed"
               >Subscribe</button>
           </div>
         </div>

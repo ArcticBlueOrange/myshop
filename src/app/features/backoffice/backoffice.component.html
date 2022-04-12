@@ -1,0 +1,118 @@
+<div class="container bg-light my-3 py-3 round-border">
+  <div class="row">
+    <div class="col">
+      <h2>
+        <i class="fas fa-plus-circle"
+        (click)="selectedProduct = null"></i>
+        Product List
+      </h2>
+      <ul class="list-group">
+        <li
+          class="list-group-item "
+          *ngFor="let product of products"
+          (click)="selectedProduct = selectedProduct?.id === product.id ? null : product"
+          [ngClass]="{'list-group-item-dark': product.id === selectedProduct?.id}">
+          <img [src]="product.image" height="50" class="mx-2">
+          {{product.label}}
+        </li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h2>
+        {{selectedProduct ? 'EDIT PRODUCT' : 'ADD NEW PRODUCT'}}
+      </h2>
+
+      <form #f="ngForm" (submit)="saveHandler(f)">
+        <input
+          type="text"
+          required
+          class="form-control my-1"
+          minlength="3"
+          placeholder="Product name"
+          [ngModel]="selectedProduct?.label"
+          name="label"
+          #labelRef="ngModel"
+          [class]="{'is-invalid': labelRef.invalid && labelRef.touched}">
+        <textarea
+          class="form-control"
+          required
+          cols="30"
+          placeholder="description"
+          [ngModel]="selectedProduct?.description"
+          name="description"
+          #descriptionRef="ngModel"
+          [class]="{'is-invalid': descriptionRef.invalid && descriptionRef.touched}"></textarea>
+        <input
+          type="number"
+          required
+          class="form-control my-1"
+          placeholder="Price"
+          name="price"
+          [ngModel]="selectedProduct?.price"
+          #priceRef="ngModel"
+          [class]="{'is-invalid': priceRef.invalid && priceRef.touched}">
+        <input
+          type="url"
+          required
+          class="form-control my-1"
+          placeholder="Image url (es. http://www...)"
+          name="image"
+          [pattern]="urlRegex"
+          #imageRef="ngModel"
+          [ngClass]="{'is-invalid': imageRef.invalid && imageRef.touched}"
+          [ngModel]="selectedProduct?.image"
+          >
+        <input
+          type="number"
+          required
+          step="1"
+          min="1"
+          max="100"
+          class="form-control my-1"
+          placeholder="Display Size (1-100)"
+          name="display"
+          [ngModel]="selectedProduct?.display"
+          #displayRef="ngModel"
+          [ngClass]="{'is-invalid': displayRef.invalid && displayRef.touched}">
+        <input
+          type="number"
+          required
+          step="1"
+          min="1"
+          max="100000000"
+          class="form-control my-1"
+          placeholder="Storage (in Mb)"
+          name="storage"
+          [ngModel]="selectedProduct?.storage"
+          #storageRef="ngModel"
+          [ngClass]="{'is-invalid': storageRef.invalid && storageRef.touched}">
+
+        <input
+          type="number"
+          required
+          step="1"
+          min="1"
+          max="100000"
+          class="form-control my-1"
+          placeholder="Memory(in Mb)"
+          name="memory"
+          [ngModel]="selectedProduct?.memory"
+          #memoryRef="ngModel"
+          [ngClass]="{'is-invalid': memoryRef.invalid && memoryRef.touched}">
+
+
+        <div class="btn-group">
+          <button type="submit" class="btn btn-primary"
+            [disabled]="f.invalid"
+            >
+      {{selectedProduct ? 'EDIT' : 'ADD'}}
+          </button>
+          <button type="button" class="btn btn-danger"
+            (click)="deleteHandler(f)"
+            >Delete</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

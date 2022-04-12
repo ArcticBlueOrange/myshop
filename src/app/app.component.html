@@ -1,8 +1,10 @@
-<button class="btn" (click)="page = 'shop'">SHOP</button>
-<button class="btn" (click)="page = 'cart'">CART</button>
+<button class="btn btn-primary" (click)="page = 'shop'">SHOP</button>
+<button class="btn btn-primary" (click)="page = 'cart'">CART</button>
+<button class="btn btn-primary" (click)="page = 'backoffice'">BACKOFFICE</button>
 
 <ac-shop *ngIf="page === 'shop'"> </ac-shop>
 <ac-cart *ngIf="page === 'cart'"> </ac-cart>
+<ac-backoffice *ngIf="page === 'backoffice'"> </ac-backoffice>
 
 <!--
  <button class="btn btn-primary">
