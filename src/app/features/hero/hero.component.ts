@@ -24,8 +24,8 @@ export class HeroComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if (!this.hero)
-      throw Error("Hero not initialized");
+    // if (!this.hero)
+    //   throw Error("Hero not initialized");
   }
 
 }

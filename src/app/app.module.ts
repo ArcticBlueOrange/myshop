@@ -13,6 +13,7 @@ import { BackofficeProductComponent } from './features/backoffice/backoffice-pro
 import { BackofficeNewsComponent } from './features/backoffice/backoffice-news/backoffice-news.component';
 import { BackofficeHeroComponent } from './features/backoffice/backoffice-hero/backoffice-hero.component';
 import { HeroComponent } from './features/hero/hero.component';
+import { NavbarComponent } from './core/components/navbar.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HeroComponent } from './features/hero/hero.component';
     BackofficeNewsComponent,
     BackofficeHeroComponent,
     HeroComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
