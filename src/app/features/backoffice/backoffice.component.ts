@@ -15,8 +15,7 @@ export class BackofficeComponent implements OnInit {
 
   selection: BackOfficePage = 'hero';
 
-
-  ngOnInit(): void {
-  }
+  constructor() { }
+  ngOnInit(): void { }
 
 }

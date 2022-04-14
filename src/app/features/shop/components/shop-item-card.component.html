@@ -1,0 +1,53 @@
+<!--card-->
+<div class="col" >
+  <div class="card h-100 round-border shadow-lg">
+    <div class="position-relative">
+      <img class="card-img-top p-3 round-border " [src]="product.image" [alt]="product.label" role="button">
+      <div class="position-absolute top-50 start-50 w-75 translate-middle pe-none">
+        <div class="row  row-cols-3 g-2 rounded p-2 text-white" style="background: rgba(0,0,0,0.5)">
+          <div class="col text-center">
+            <i class="fas fa-memory"></i>
+            {{product.memory/1000}}Gb
+          </div>
+
+          <div class="col text-center">
+            <i class="fas fa-sim-card"></i>
+            {{product.storage/1000}}Gb
+          </div>
+          <div class="col text-center">
+            <i class="fas fa-mobile-alt"></i>
+            {{product.display}}''
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title">
+        {{product.label}}
+      </h5>
+      <p class="card-text text-secondary">{{product.description}}</p>
+    </div>
+
+    <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center">
+      <div *ngFor="let color of product.colors" class="mx-1 mb-3 round-border shadow-sm"
+        style="width: 30px; height: 30px; border: 1px solid #fff;" role="button" [style.backgroundColor]='color'
+        (click)="chooseColor(color)" [style.border-width.px]="selectedColor === color ? 5 : 1"
+        [style.border-color]="selectedColor === color ? 'orange' : '#ccc'">
+      </div>
+    </div>
+
+    <div class="card-footer d-flex justify-content-between align-items-center">
+      <div class="h5 text-secondary">{{product.price | currency: '€'}} + vat</div>
+
+      <div>
+        <span>{{!selectedColor ? 'select a color': 'add to Cart'}} </span>
+
+        <button class="btn icon-circle-sm px-1 ms-2 shadow-lg" style="color: #222"
+          [style.background-color]="!selectedColor ? '#ccc' : selectedColor" [disabled]="!selectedColor"
+          (click)="addToCart.emit({product, color:selectedColor})">
+          <i class="fas fa-cart-plus text-white"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

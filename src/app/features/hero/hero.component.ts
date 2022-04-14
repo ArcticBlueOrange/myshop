@@ -22,10 +22,6 @@ export class HeroComponent implements OnInit {
   @Input() hero: Hero | null = null;
 
   constructor() { }
-
-  ngOnInit(): void {
-    // if (!this.hero)
-    //   throw Error("Hero not initialized");
-  }
+  ngOnInit(): void { }
 
 }

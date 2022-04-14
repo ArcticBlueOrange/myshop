@@ -14,6 +14,9 @@ import { BackofficeNewsComponent } from './features/backoffice/backoffice-news/b
 import { BackofficeHeroComponent } from './features/backoffice/backoffice-hero/backoffice-hero.component';
 import { HeroComponent } from './features/hero/hero.component';
 import { NavbarComponent } from './core/components/navbar.component';
+import { ShopItemCardComponent } from './features/shop/components/shop-item-card.component';
+import { ShopItemNewsComponent } from './features/shop/components/shop-item-news.component';
+import { ShopNewsletterComponent } from './features/shop/components/shop-newsletter.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { NavbarComponent } from './core/components/navbar.component';
     BackofficeHeroComponent,
     HeroComponent,
     NavbarComponent,
+    ShopItemCardComponent,
+    ShopItemNewsComponent,
+    ShopNewsletterComponent,
   ],
   imports: [
     BrowserModule,

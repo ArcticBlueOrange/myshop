@@ -1,8 +1,8 @@
 {
   "hero": {
-    "image": "https://res.cloudinary.com/my-notes-demo/image/upload/v1627760415/academy/hero.jpg",
-    "title": "My Shop: amazing devices",
-    "description": "Buy the latest devices for the <strong>best price</strong>  "
+    "title": "My Shop: super magical incredible devices",
+    "description": "Buy the latest devices for the <strong>best price</strong>  \n<br>\nReally, you'll love them",
+    "image": "https://res.cloudinary.com/my-notes-demo/image/upload/v1627760415/academy/hero.jpg"
   },
   "news": [
     {
@@ -52,32 +52,30 @@
       ]
     },
     {
+      "label": "iPhone Shuffle",
+      "description": "Smaller is magicher",
+      "price": 420,
+      "image": "https://www.iphonesavior.com/images/2008/06/08/iphone_shuffle.jpg",
+      "display": 10,
+      "storage": 256,
+      "memory": 128,
       "id": 4,
+      "colors": [
+        "#ff0000"
+      ]
+    },
+    {
+      "id": 5,
       "label": "myPhone 13",
-      "description": "5G speed. A14 Bionic, the fastest chip in a smartphone.\nAn edge-to-edge OLED display. Ceramic Shield with four times better drop performance. And Night mode on every camera. iPhone 12 has it all — in two perfect sizes.",
-      "image": "http://res.cloudinary.com/my-notes-demo/image/upload/v1627760465/academy/iphone12.jpg",
+      "description": "5G speed. A14 Bionic, the fastest chip in a smartphone.\nAn edge-to-edge OLED display. Ceramic Shield with four times better drop performance. And Night mode on every camera. iPhone 13 has it all — in two perfect sizes.",
+      "image": "https://res.cloudinary.com/my-notes-demo/image/upload/v1627760465/academy/iphone12.jpg",
       "memory": 16000,
       "storage": 256000,
       "display": 12.9,
       "price": 850,
       "colors": [
-        "black",
-        "red",
-        "lightgreen",
-        "midnightblue",
-        "mediumpurple"
+        "#af4141"
       ]
-    },
-    {
-      "label": "iPhone Nano",
-      "description": "Smaller is magicher",
-      "price": 9999,
-      "url": "https://4.bp.blogspot.com/-ahsPqoqWUiE/TWLK0VtD2aI/AAAAAAAAECo/sDmJ9HfAHXI/s1600/iphone+nano.png",
-      "display": 5,
-      "storage": 256,
-      "memory": 128,
-      "id": 5,
-      "image": "https://4.bp.blogspot.com/-ahsPqoqWUiE/TWLK0VtD2aI/AAAAAAAAECo/sDmJ9HfAHXI/s1600/iphone+nano.png"
     }
   ],
   "newsletter": {
