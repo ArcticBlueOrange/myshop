@@ -1,0 +1,59 @@
+<div class="container bg-light my-3 py-3 round-border">
+  <div class="row">
+    <div class="col">
+      <!-- news list -->
+      <h2>
+        <i class="fas fa-plus-circle" (click)="selectItem(null)"></i>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let item of items" (click)="selectItem(item)"
+            [ngClass]="{'list-group-item-dark': item.id === selectedItem?.id}">
+            <!-- <div class="card-header justify-content-md-between"> -->
+            <div class="d-flex justify-content-between">
+              <span> {{item.title}} </span>
+              <a [href]="item.url" target="_blank" class="btn btn-dark round-border">Link
+                <i class="fas fa-external-link-alt"></i> </a>
+            </div>
+            <hr>
+            <div style="text-overflow: ellipsis;" [style]="'font-size: 50%;'">
+              {{item.description | slice: 0 : 55 }}
+              <span *ngIf="item.description.length >=20">...</span>
+            </div>
+          </li>
+        </ul>
+      </h2>
+    </div>
+
+
+    <div class="col">
+      <!-- news edit -->
+      <h2>
+        {{selectedItem ? 'EDIT ITEM' : 'NEW ITEM'}}
+      </h2>
+
+      <!-- <div> {{selectedItem | json}}</div> -->
+
+      <form #f="ngForm" (submit)="saveHandler(f)">
+        <hr>
+        <ac-error message="Title too short" [formRef]="titleRef"></ac-error>
+        <input type="text" required class="form-control my-1" minlength="3" placeholder="Title" name="title"
+          [ngModel]="selectedItem?.title" #titleRef="ngModel">
+        <ac-error message="Description too short" [formRef]="descriptionRef"></ac-error>
+        <textarea type="text" required class="form-control my-1" cols="30" rows="10" minlength="10"
+          placeholder="Description" name="description" [ngModel]="selectedItem?.description"
+          #descriptionRef="ngModel"></textarea>
+        <ac-error message="Invalid Url" [formRef]="urlRef"></ac-error>
+        <input type="text" required class="form-control my-1" pattern="(https?:\/\/)(.+)" placeholder="Url" name="url"
+          [ngModel]="selectedItem?.url" #urlRef="ngModel">
+
+        <button class="btn btn-primary" [disabled]="f.invalid">
+          {{ selectedItem ? 'EDIT' : 'ADD'}}
+        </button>
+        <button class="btn btn-danger" type="button"
+          (click)="deleteHandler(f)">
+          DELETE
+        </button>
+
+      </form>
+
+
+    </div>

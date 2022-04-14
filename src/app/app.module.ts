@@ -8,6 +8,11 @@ import { FormsModule } from '@angular/forms';
 import { ShopComponent } from './features/shop/shop.component';
 import { CartComponent } from './features/cart/cart.component';
 import { BackofficeComponent } from './features/backoffice/backoffice.component';
+import { ErrorComponent } from './features/error/error.component';
+import { BackofficeProductComponent } from './features/backoffice/backoffice-product/backoffice-product.component';
+import { BackofficeNewsComponent } from './features/backoffice/backoffice-news/backoffice-news.component';
+import { BackofficeHeroComponent } from './features/backoffice/backoffice-hero/backoffice-hero.component';
+import { HeroComponent } from './features/hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +20,11 @@ import { BackofficeComponent } from './features/backoffice/backoffice.component'
     ShopComponent,
     CartComponent,
     BackofficeComponent,
+    ErrorComponent,
+    BackofficeProductComponent,
+    BackofficeNewsComponent,
+    BackofficeHeroComponent,
+    HeroComponent,
   ],
   imports: [
     BrowserModule,
