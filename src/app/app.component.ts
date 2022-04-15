@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Page } from './model/page';
+// import { Page } from './model/page';
 
 @Component({
   selector: 'ac-root',
@@ -7,6 +7,6 @@ import { Page } from './model/page';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  page: Page = 'shop';
+  // page: Page = 'shop';
 
 }

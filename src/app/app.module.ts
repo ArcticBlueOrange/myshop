@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,8 @@ import { NavbarComponent } from './core/components/navbar.component';
 import { ShopItemCardComponent } from './features/shop/components/shop-item-card.component';
 import { ShopItemNewsComponent } from './features/shop/components/shop-item-news.component';
 import { ShopNewsletterComponent } from './features/shop/components/shop-newsletter.component';
+import { ProductComponent } from './features/product/product.component';
+import { ColorPickerComponent } from './shared/components/color-picker.component';
 
 @NgModule({
   declarations: [
@@ -33,12 +36,21 @@ import { ShopNewsletterComponent } from './features/shop/components/shop-newslet
     ShopItemCardComponent,
     ShopItemNewsComponent,
     ShopNewsletterComponent,
+    ProductComponent,
+    ColorPickerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    RouterModule.forRoot([
+      { path: 'shop', component: ShopComponent },
+      { path: 'cart', component: CartComponent },
+      { path: 'backoffice', component: BackofficeComponent },
+      { path: 'product/:id', component: ProductComponent },
+      { path: '', redirectTo: 'shop', pathMatch: 'full' },
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "My Shop: super magical incredible devices",
-    "description": "Buy the latest devices for the <strong>best price</strong>  \n<br>\nReally, you'll love them",
+    "description": "Buy the latest devices for the <strong>best price</strong>  \n<br><br><br><br>\nReally, you'll <b>love</b> them",
     "image": "https://res.cloudinary.com/my-notes-demo/image/upload/v1627760415/academy/hero.jpg"
   },
   "news": [
@@ -61,7 +61,10 @@
       "memory": 128,
       "id": 4,
       "colors": [
-        "#ff0000"
+        "#ff0000",
+        "#0a95ff",
+        "#ffffff",
+        "#000000"
       ]
     },
     {

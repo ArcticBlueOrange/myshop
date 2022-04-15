@@ -1,0 +1,15 @@
+<div
+  class="d-flex flex-column flex-lg-row justify-content-center align-items-center"
+  >
+  <div
+    *ngFor="let color of colors"
+    class="mx-1 mb-3 round-border shadow-sm"
+    style="width: 30px; height: 30px; border: 1px solid #fff;"
+    role="button"
+    [style.backgroundColor]='color'
+    (click)="chooseColor(color)"
+    [style.border-width.px]="selectedColor === color ? 5 : 1"
+    [style.border-color]="selectedColor === color ? 'orange' : '#ccc'"
+  >
+  </div>
+</div>

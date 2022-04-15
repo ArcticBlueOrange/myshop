@@ -7,11 +7,4 @@ import { Page } from '../../model/page';
   styles: [
   ]
 })
-export class NavbarComponent implements OnInit {
-
-  @Output() selectPage = new EventEmitter<Page>();
-
-  ngOnInit(): void {
-  }
-
-}
+export class NavbarComponent { }
