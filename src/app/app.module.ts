@@ -1,44 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+// import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
+import { ShopModule } from './features/shop/shop.module';
+import { BackofficeModule } from './features/backoffice/backoffice.module';
+import { ProductModule } from './features/product/product.module';
+
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { ShopComponent } from './features/shop/shop.component';
-import { CartComponent } from './features/cart/cart.component';
-import { BackofficeComponent } from './features/backoffice/backoffice.component';
-import { ErrorComponent } from './features/error/error.component';
-import { BackofficeProductComponent } from './features/backoffice/backoffice-product/backoffice-product.component';
-import { BackofficeNewsComponent } from './features/backoffice/backoffice-news/backoffice-news.component';
-import { BackofficeHeroComponent } from './features/backoffice/backoffice-hero/backoffice-hero.component';
-import { HeroComponent } from './features/hero/hero.component';
+import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './core/components/navbar.component';
-import { ShopItemCardComponent } from './features/shop/components/shop-item-card.component';
-import { ShopItemNewsComponent } from './features/shop/components/shop-item-news.component';
-import { ShopNewsletterComponent } from './features/shop/components/shop-newsletter.component';
-import { ProductComponent } from './features/product/product.component';
-import { ColorPickerComponent } from './shared/components/color-picker.component';
 import { Page404Component } from './features/page404/page404.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShopComponent,
-    CartComponent,
-    BackofficeComponent,
-    ErrorComponent,
-    BackofficeProductComponent,
-    BackofficeNewsComponent,
-    BackofficeHeroComponent,
-    HeroComponent,
     NavbarComponent,
-    ShopItemCardComponent,
-    ShopItemNewsComponent,
-    ShopNewsletterComponent,
-    ProductComponent,
-    ColorPickerComponent,
     Page404Component,
   ],
   imports: [
@@ -46,11 +25,12 @@ import { Page404Component } from './features/page404/page404.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    // SharedModule,
     RouterModule.forRoot([
-      { path: 'shop', component: ShopComponent },
-      { path: 'cart', component: CartComponent },
-      { path: 'backoffice', component: BackofficeComponent },
-      { path: 'product/:id', component: ProductComponent },
+      { path: 'shop', loadChildren: () => import('./features/shop/shop.module').then(m => m.ShopModule)},
+      { path: 'cart', loadChildren: () => import('./features/cart/cart.module').then(m => m.CartModule)},
+      { path: 'backoffice', loadChildren: () => import('./features/backoffice/backoffice.module').then(m => m.BackofficeModule)},
+      { path: 'product/:id', loadChildren: () => import('./features/product/product.module').then(m => m.ProductModule)},
       { path: '', redirectTo: 'shop', pathMatch: 'full' },
       { path: '404', component: Page404Component },
       { path: '**', redirectTo: '404', pathMatch: 'full' },
