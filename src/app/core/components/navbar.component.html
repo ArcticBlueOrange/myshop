@@ -1,11 +1,16 @@
 <div class="navbar navbar-light bg-light sticky-top shadow-lg">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/">
+    <a class="navbar-brand" routerLink="/"
+      routerLinkActive="homepageactive">
       <i class="fab fa-shopify"></i> My Shop
     </a>
     <div class="d-flex">
-      <button class="btn btn-outline-dark mx-2" routerLink="backoffice"> <i class="fas fa-lock"></i> Admin</button>
-      <button class="btn btn-outline-dark mx-2" routerLink="cart"> <i class="fas fa-cart-plus"></i>
+      <button class="btn btn-outline-dark mx-2" routerLink="backoffice"
+        routerLinkActive="btn-dark text-white"
+        > <i class="fas fa-lock"></i> Admin</button>
+      <button class="btn btn-outline-dark mx-2" routerLink="cart"
+        routerLinkActive="btn-dark text-white"
+        > <i class="fas fa-cart-plus"></i>
         Cart</button>
     </div>
   </div>

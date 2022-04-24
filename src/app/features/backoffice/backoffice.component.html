@@ -1,10 +1,8 @@
-<!-- <hr> -->
-
-<button class="btn btn-warning" (click)="selection = 'product'">PRODUCT</button>
-<button class="btn btn-warning" (click)="selection = 'news'">NEWS</button>
-<button class="btn btn-warning" (click)="selection = 'hero'">HERO</button>
-
-<hr>
+<div class="navbar navbar-light bg-light sticky-top justify-content-end">
+  <button class="btn btn-outline-dark mx-2" (click)="selection = 'product'">Products</button>
+  <button class="btn btn-outline-dark mx-2" (click)="selection = 'news'">News</button>
+  <button class="btn btn-outline-dark mx-2" (click)="selection = 'hero'">Hero</button>
+</div>
 
 <ac-backoffice-product *ngIf="selection === 'product'"></ac-backoffice-product>
 <ac-backoffice-news *ngIf="selection === 'news'"></ac-backoffice-news>

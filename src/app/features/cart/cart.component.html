@@ -1,4 +1,4 @@
-<div class="contaier bg-light my-3 py-3 round-border">
+<div class="container bg-light my-3 py-3 round-border">
 
   <div class="'py-5 text-center">
     <i class="fab fa-shopify fa-4x"></i>
@@ -50,7 +50,7 @@
         <div class="col-md-5">
           <label for="country" class="form-label">Country</label>
           <select class="form-select" required [ngModel] name="country" #countryRef="ngModel"
-            [ngClass]="checkField(countryRef, false)">
+            [ngClass]="checkField(countryRef)">
             <option [value]=null>Choose ...</option>
             <option value="it">Italy</option>
             <option value="us">United States</option>
@@ -73,12 +73,12 @@
       <div clas="my-3">
         <div class="form-check">
           <input type="radio" ngModel name="paymentMethod" value="creditCard" required class="form-check-input"
-            #paymentRef="ngModel" [ngClass]="checkField(paymentRef, false)">
+            #paymentRef="ngModel" [ngClass]="checkField(paymentRef)">
           <label class="form-check-label" for="credit">Credit Card</label>
         </div>
         <div class="form-check">
           <input type="radio" ngModel name="paymentMethod" value="bankTransfer" required class="form-check-input"
-            #paymentRef="ngModel" [ngClass]="checkField(paymentRef, false)">
+            #paymentRef="ngModel" [ngClass]="checkField(paymentRef)">
           <label class="form-check-label" for="debit">Bank Transfer </label>
           <div class="invalid-feedback">
             Please select a payment method
@@ -90,7 +90,7 @@
             <label for="cc-name" class="form-label">
               Name on card </label>
             <input type="text" class="form-control" required ngModel name="cardName" #cardNameRef="ngModel"
-              [ngClass]="checkField(cardNameRef, false)">
+              [ngClass]="checkField(cardNameRef)">
             <small class="text-muted">Full name as displayed on card</small>
             <div class="invalid-feedback">Name on card is required</div>
           </div>
@@ -98,14 +98,14 @@
           <div class="col-md-6">
             <label for="cc-number" class="form-label">Credit card number</label>
             <input type="text" class="form-control" required minlength="16" maxlength="16" ngModel name="cardNumber"
-              #cardNumberRef="ngModel" [ngClass]="checkField(cardNumberRef,false)">
+              #cardNumberRef="ngModel" [ngClass]="checkField(cardNumberRef)">
             <div class="invalid-feedback">Credit card number is required (16 numbers)</div>
           </div>
 
           <div class="col-md-3">
             <label for="cc-expiration" class="form-label">Expiration</label>
             <input type="text" class="form-control" placeholder="12/22" required [pattern]="expirationPattern" ngModel
-              name="cardExpiration" #cardExpirationRef="ngModel" [ngClass]="checkField(cardExpirationRef,false)">
+              name="cardExpiration" #cardExpirationRef="ngModel" [ngClass]="checkField(cardExpirationRef)">
             <div class="invalid-feedback">
               Expiration date required
               <!--{{cardExpirationRef.errors | json}}-->
@@ -114,7 +114,7 @@
           <div class="col-md-3">
             <label for="cc-cvv" class="form-label">CVV</label>
             <input type="text" class="form-control" required minlength="3" maxlength="3" ngModel name="cardCVV"
-              #cardCVVRef="ngModel" [ngClass]="checkField(cardCVVRef,false)">
+              #cardCVVRef="ngModel" [ngClass]="checkField(cardCVVRef)">
             <div class="invalid-feedback">
               Security code required
             </div>

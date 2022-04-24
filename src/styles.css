@@ -25,3 +25,9 @@ i.icon-circle-sm {
   -moz-box-shadow: 0px 0px 100px 0px rgb(186, 186, 186);
   box-shadow: 0px 0px 100px 0px rgb(186, 186, 186);
 }
+
+.my-errorfield {
+  text-align: center;
+  position: sticky;
+  background-color: rgba(130, 0, 0, 0.804);
+}

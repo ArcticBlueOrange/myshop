@@ -20,6 +20,7 @@ import { ShopItemNewsComponent } from './features/shop/components/shop-item-news
 import { ShopNewsletterComponent } from './features/shop/components/shop-newsletter.component';
 import { ProductComponent } from './features/product/product.component';
 import { ColorPickerComponent } from './shared/components/color-picker.component';
+import { Page404Component } from './features/page404/page404.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ColorPickerComponent } from './shared/components/color-picker.component
     ShopNewsletterComponent,
     ProductComponent,
     ColorPickerComponent,
+    Page404Component,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,8 @@ import { ColorPickerComponent } from './shared/components/color-picker.component
       { path: 'backoffice', component: BackofficeComponent },
       { path: 'product/:id', component: ProductComponent },
       { path: '', redirectTo: 'shop', pathMatch: 'full' },
+      { path: '404', component: Page404Component },
+      { path: '**', redirectTo: '404', pathMatch: 'full' },
     ])
   ],
   providers: [],

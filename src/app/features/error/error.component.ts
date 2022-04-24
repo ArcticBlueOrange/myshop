@@ -5,21 +5,20 @@ import { Product } from 'src/app/model/product';
 @Component({
   selector: 'ac-error',
   template: `
-            <div
-              [class]="class"
-              *ngIf="formRef?.invalid && formRef?.dirty"
-              >
-              {{message}}
-            </div>
+   <div
+     [class]="class"
+     *ngIf="formRef?.invalid"
+      >
+      {{message}}
+     <!-- *ngIf="formRef?.invalid && formRef?.dirty" -->
+   </div>
   `,
-  styles: [
-  ]
 })
 export class ErrorComponent implements OnInit {
 
   @Input() message: string = '';
   @Input() formRef: NgModel | null = null;
-  @Input() class: string = "bg-danger text-white";
+  @Input() class: string = "text-white round-border my-errorfield";
 
   constructor() { }
 

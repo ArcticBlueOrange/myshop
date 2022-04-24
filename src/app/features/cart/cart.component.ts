@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
     console.log(formData);
   }
 
-  checkField(input: NgModel, checkDirty: boolean=true) {
+  checkField(input: NgModel, checkDirty: boolean=false) {
     const startValue = checkDirty ? input.dirty : true;
     return { 'is-invalid': (input.invalid || input.value === 'null') && startValue, 'is-valid': input.valid };
   }

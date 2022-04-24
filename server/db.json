@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "My Shop: super magical incredible devices",
-    "description": "Buy the latest devices for the <strong>best price</strong>  \n<br><br><br><br>\nReally, you'll <b>love</b> them",
+    "description": "Buy the latest devices for the <strong>best price</strong><br><br><br><br>Really, you'll <b>love</b> them",
     "image": "https://res.cloudinary.com/my-notes-demo/image/upload/v1627760415/academy/hero.jpg"
   },
   "news": [
@@ -53,7 +53,7 @@
     },
     {
       "label": "iPhone Shuffle",
-      "description": "Smaller is magicher",
+      "description": "It randomly calls people from your conacts until you get the right number. <br>\n<i>Make them feel remembered with a simple call </i><br>\nSmaller is magicher",
       "price": 420,
       "image": "https://www.iphonesavior.com/images/2008/06/08/iphone_shuffle.jpg",
       "display": 10,
@@ -77,7 +77,10 @@
       "display": 12.9,
       "price": 850,
       "colors": [
-        "#af4141"
+        "#af4141",
+        "#000000",
+        "#00aaff",
+        "#ffffff"
       ]
     }
   ],

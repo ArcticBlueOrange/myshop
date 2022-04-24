@@ -9,11 +9,10 @@ const baseUrl = 'http://localhost:3000';
 @Component({
   selector: 'ac-backoffice',
   templateUrl: './backoffice.component.html',
-  styleUrls: ["./backoffice.component.css"]
 })
 export class BackofficeComponent implements OnInit {
 
-  selection: BackOfficePage = 'hero';
+  selection: BackOfficePage = 'product';
 
   constructor() { }
   ngOnInit(): void { }

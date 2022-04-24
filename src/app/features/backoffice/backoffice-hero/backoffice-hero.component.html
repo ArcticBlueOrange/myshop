@@ -1,28 +1,30 @@
 <!-- <pre> {{hero | json}} </pre> -->
+<div class="container bg-light my-3 py-3 round-border">
 
-<form #f="ngForm" (submit)="saveHandler(f)">
+  <form #f="ngForm" (submit)="saveHandler(f)">
 
-  <ac-error message="Title too short" [formRef]="titleRef"></ac-error>
-  <input type="text" required class="form-control" minlength="5" placeholder="Title" name="title" [ngModel]="hero.title"
-    #titleRef="ngModel" [ngClass]="{'is-invalid': titleRef.invalid && titleRef.dirty }">
-  <ac-error message="Description too short" [formRef]="descriptionRef"></ac-error>
-  <textarea type="text" required class="form-control" minlength="5" placeholder="Description" name="description"
-    [ngModel]="hero.description" #descriptionRef="ngModel" cols="30" rows="10"
-    [ngClass]="{'is-invalid': descriptionRef.invalid && descriptionRef.dirty }">
+    <ac-error message="Title too short" [formRef]="titleRef"></ac-error>
+    <input type="text" required class="form-control" minlength="5" placeholder="Title" name="title"
+      [ngModel]="hero.title" #titleRef="ngModel" [ngClass]="{'is-invalid': titleRef.invalid && titleRef.dirty }">
+    <ac-error message="Description too short" [formRef]="descriptionRef"></ac-error>
+    <textarea type="text" required class="form-control" minlength="5" placeholder="Description" name="description"
+      [ngModel]="hero.description" #descriptionRef="ngModel" cols="30" rows="10"
+      [ngClass]="{'is-invalid': descriptionRef.invalid && descriptionRef.dirty }">
   </textarea>
-  <ac-error message="Invalid Image Url" [formRef]="imageRef"></ac-error>
-  <input type="text" required class="form-control" minlength="5" placeholder="image" name="image" [ngModel]="hero.image"
-    #imageRef="ngModel" [ngClass]="{'is-invalid': imageRef.invalid && imageRef.dirty }">
+    <ac-error message="Invalid Image Url" [formRef]="imageRef"></ac-error>
+    <input type="text" required class="form-control" minlength="5" placeholder="image" name="image"
+      [ngModel]="hero.image" #imageRef="ngModel" [ngClass]="{'is-invalid': imageRef.invalid && imageRef.dirty }">
 
-  <button type="submit" class="btn btn-primary" [disabled]="f.invalid">UPDATE</button>
-  <button type="button" class="btn btn-warning" (click)="hero = f.value"> PREVIEW </button>
-  <button type="button" class="btn btn-success" (click)="getHero()"> RELOAD </button>
+    <button type="submit" class="btn btn-primary" [disabled]="f.invalid">UPDATE</button>
+    <button type="button" class="btn btn-warning" (click)="hero = f.value"> PREVIEW </button>
+    <button type="button" class="btn btn-success" (click)="getHero()"> RELOAD </button>
 
-</form>
+  </form>
 
+  <hr>
 
-<hr>
+  <h2> Preview </h2>
 
-<h2> Preview </h2>
+  <ac-hero [hero]="hero"></ac-hero>
 
-<ac-hero [hero]="hero"></ac-hero>
+</div>
