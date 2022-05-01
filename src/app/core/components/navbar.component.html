@@ -1,17 +1,17 @@
-<div class="navbar navbar-light bg-light sticky-top shadow-lg">
+<nav class="navbar navbar-light bg-light sticky-top shadow-lg">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/"
-      routerLinkActive="homepageactive">
+    <a class="navbar-brand" routerLink="/" routerLinkActive="homepageactive">
       <i class="fab fa-shopify"></i> My Shop
     </a>
     <div class="d-flex">
-      <button class="btn btn-outline-dark mx-2" routerLink="backoffice"
-        routerLinkActive="btn-dark text-white"
-        > <i class="fas fa-lock"></i> Admin</button>
-      <button class="btn btn-outline-dark mx-2" routerLink="cart"
-        routerLinkActive="btn-dark text-white"
-        > <i class="fas fa-cart-plus"></i>
-        Cart</button>
+      <button class="btn btn-outline-dark mx-2" routerLink="backoffice" routerLinkActive="btn-dark text-white"> <i
+          class="fas fa-lock"></i> Admin</button>
+      <button class="btn btn-outline-dark mx-2" routerLink="cart" routerLinkActive="btn-dark text-white"> <i
+          class="fas fa-cart-plus"></i>
+        Cart (€ {{cartService.getTotalCartAmount()}} - {{cartService.items.length}})
+      </button>
     </div>
   </div>
-</div>
+</nav>
+
+<ac-notification></ac-notification>

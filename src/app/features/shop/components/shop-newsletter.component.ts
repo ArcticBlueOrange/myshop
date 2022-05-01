@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NotificationService } from 'src/app/core/services/notification.service';
 import { News } from 'src/app/model/news';
 
 const baseUrl = 'http://localhost:3000';
@@ -35,7 +36,8 @@ export class ShopNewsletterComponent implements OnInit {
   subscribed!: string | null;
   mailRegex = /^[\w\d_.]+@[\w\d_]+\.\w+$/;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+  public notificationService: NotificationService) { }
 
   ngOnInit(): void {
     this.subscribed = localStorage.getItem('subscribed');
@@ -46,6 +48,7 @@ export class ShopNewsletterComponent implements OnInit {
       .subscribe(res => {
         if (res.response === 'ok') {
           this.subscribed = email;
+          this.notificationService.show("Hai sottoscritto questa newsletter!")
           localStorage.setItem('subscribed', email);
         }
       })

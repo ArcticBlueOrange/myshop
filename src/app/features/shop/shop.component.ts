@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../model/product';
 import { News } from '../../model/news';
 import { Hero } from '../../model/hero';
+import { NotificationService } from 'src/app/core/services/notification.service';
+import { CartService } from 'src/app/core/services/cart.service';
 
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -20,8 +22,10 @@ export class ShopComponent implements OnInit {
   products: Product[] = [];
   news: News[] = [];
   subscribed: string | null = null;
+  selectedColor: string | null = null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    public cartService: CartService) { }
 
   ngOnInit(): void {
     this.http.get<Hero>(`${baseUrl}/hero`).subscribe(res => this.hero = res);
@@ -30,10 +34,9 @@ export class ShopComponent implements OnInit {
     console.log(this.subscribed);
   }
 
-  selectedColor: string | null = null;
-
   addToCartHandler(params: { product: Product; color: string | null }) {
-    console.log(params.product, params.color);
+    this.cartService.addItem(params.product, params.color);
+    // console.log(`Cart contains ${this.cartService.items.length} items for a total of ${this.cartService.getTotalCartAmount()}€`)
   }
 
 }

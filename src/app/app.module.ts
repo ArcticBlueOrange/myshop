@@ -13,12 +13,16 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './core/components/navbar.component';
 import { Page404Component } from './features/page404/page404.component';
+import { NotificationComponent } from './core/components/notification.component';
+import { NavbarcartPanelComponent } from './core/components/navbarcart-panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     Page404Component,
+    NotificationComponent,
+    NavbarcartPanelComponent,
   ],
   imports: [
     BrowserModule,

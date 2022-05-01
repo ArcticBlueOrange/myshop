@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/model/product';
+import { CartService } from 'src/app/core/services/cart.service';
 
 @Component({
   selector: 'ac-product',
@@ -12,7 +13,9 @@ import { Product } from 'src/app/model/product';
 export class ProductComponent implements OnInit {
 
   product: Product | null = null;
-  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) { }
+  constructor(private http: HttpClient,
+    private activatedRoute: ActivatedRoute,
+    private cartService: CartService) { }
   selectedColor: string | null = null;
 
   ngOnInit(): void {
@@ -21,7 +24,10 @@ export class ProductComponent implements OnInit {
   }
 
   addToCartHandler(): void {
-    console.log(this.product, this.selectedColor);
+    if (this.product && this.selectedColor)
+      this.cartService.addItem(this.product, this.selectedColor)
+    // console.log(`Cart contains ${this.cartService.items.length} items for a total of ${this.cartService.getTotalCartAmount()}€`)
+    // console.log(this.product, this.selectedColor);
   }
 
 }

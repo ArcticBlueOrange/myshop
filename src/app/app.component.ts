@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   // page: Page = 'shop';
+  // test = () => console.log('test');
+  // test2 = () => true || false;
+  // test3 = () => true && false;
+
 
 }

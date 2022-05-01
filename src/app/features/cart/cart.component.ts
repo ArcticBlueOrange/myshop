@@ -1,5 +1,6 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
+import { CartService } from 'src/app/core/services/cart.service';
 
 @Component({
   selector: 'ac-cart',
@@ -8,13 +9,15 @@ import { NgModel } from '@angular/forms';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  constructor(public cartService: CartService) { }
 
   ngOnInit(): void {
+
   }
 
   submitHandler(formData: any) {
-    console.log(formData);
+    // console.log(formData);
+    this.cartService.orderNow(formData);
   }
 
   checkField(input: NgModel, checkDirty: boolean=false) {
