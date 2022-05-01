@@ -11,6 +11,7 @@ import { NotificationComponent } from './notification.component';
   ]
 })
 export class NavbarComponent {
+  showCartPreview : boolean = false;
   constructor( public notificationService: NotificationService,
     public cartService: CartService) {
     // this.notificationService.show("Welcome!")

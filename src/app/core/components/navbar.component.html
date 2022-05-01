@@ -6,7 +6,12 @@
     <div class="d-flex">
       <button class="btn btn-outline-dark mx-2" routerLink="backoffice" routerLinkActive="btn-dark text-white"> <i
           class="fas fa-lock"></i> Admin</button>
-      <button class="btn btn-outline-dark mx-2" routerLink="cart" routerLinkActive="btn-dark text-white"> <i
+      <button
+        class="btn btn-outline-dark mx-2"
+        routerLink="cart"
+        routerLinkActive="btn-dark text-white"
+        (mouseover)="showCartPreview = true"
+        > <i
           class="fas fa-cart-plus"></i>
         Cart (€ {{cartService.getTotalCartAmount()}} - {{cartService.items.length}})
       </button>
@@ -15,3 +20,7 @@
 </nav>
 
 <ac-notification></ac-notification>
+
+<ac-navbar-cart-panel *ngIf="showCartPreview"
+(mouseleave)="showCartPreview = false"
+></ac-navbar-cart-panel>

@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './core/components/navbar.component';
 import { Page404Component } from './features/page404/page404.component';
 import { NotificationComponent } from './core/components/notification.component';
-import { NavbarcartPanelComponent } from './core/components/navbarcart-panel.component';
+import { NavbarCartPanelComponent } from './core/components/navbar-cart-panel.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { NavbarcartPanelComponent } from './core/components/navbarcart-panel.com
     NavbarComponent,
     Page404Component,
     NotificationComponent,
-    NavbarcartPanelComponent,
+    NavbarCartPanelComponent,
   ],
   imports: [
     BrowserModule,
